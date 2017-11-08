@@ -1,16 +1,11 @@
 'use strict';
 
 
-var tags = [
-  {'name': 'My Favorites', 'color': 'orange'},
-  {'name': 'Ralphs', 'color': 'pink'}
-]
-
 var index = 1;
 
 var couponList = [
   {'title': 'Apples', 'expdate': '2012-10-14', 'tags': ['My Favorites', 'Groceries']},
-  {'title': 'Fuji', 'expdate': '2018-11-16', 'tags': ['My Favorites']},
+  {'title': 'Fuji', 'expdate': '2018-11-16', 'tags': ['My Favorites']}
 ]
 
 
@@ -32,7 +27,7 @@ function save_data(){
   } else {
   	list = couponList;
   }
-  console.log('poop');
+
   var form1 = document.getElementById("frm");
   console.log(form1.elements[0].value);
   console.log(form1.elements[1].value);
@@ -50,3 +45,5 @@ function save_data(){
   localStorage.setItem('customCoupons', JSON.stringify(list));
 
 }
+
+
