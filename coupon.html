@@ -15,29 +15,91 @@
 			<h1> COUPONS </h1>
 		</div>
 
-		<!-- search bar
-		<div class="wrap">
-		   <div class="search">
-		      <input type="text" class="searchTerm" placeholder="What are you looking for?">
-		      <button type="submit" class="searchButton">
-		        <i class="fa fa-search"></i>
-		     </button>
-		   </div>
-		</div>
--->
 <!-- w3 search bar -->
 		<div class="search">
 				 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search name of coupon" title="Type in a name">
  		</div>
 
-		<!-- Dynamically generate -->
+<!-- sort by and filter tags buttons -->
+<div class="container">
+
+  <div class="panel">
+    <div class="panel-body">
+
+      <!-- Sort Button -->
+      <div class="btn-group">
+
+        <button type="button" class="btn btn-primary btn-sort btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Sort by">
+          <span>Sort By</span> <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+        </button>
+
+        <!-- sort drop down -->
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#" class="sort-item">
+              <i class="fa fa-fw item-left" aria-hidden="true"></i>
+              <span class="item-center">Exp Date</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="sort-item">
+              <i class="fa fa-fw  item-left" aria-hidden="true"></i>
+              <span class="item-center">Upload Date</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- tags button -->
+      <div class="btn-group">
+
+        <button type="button" class="btn btn-primary btn-sort btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Sort by">
+          <span>Tags</span> <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+        </button>
+
+        <!-- tags drop down -->
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#" class="sort-item">
+              <i class="fa fa-fw item-left" aria-hidden="true"></i>
+              <span class="item-center">My Favorites</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="sort-item">
+              <i class="fa fa-fw  item-left" aria-hidden="true"></i>
+              <span class="item-center">Groceries</span>
+
+            </a>
+          </li>
+        </ul>
+      </div>
+  </div>
+  </div>
+</div>
+
+<!--- END Sort and Filter Button -->
+
+		<!-- Dynamically generate coupons -->
 		<script id="entry-template" type="text/x-handlebars-template">
 		<div class="couponList" id="couponList{{index}}">
 			<table id="myTable">
 				<tr>
 					<td>
 						<a href="#" class="coupon">
-							<p>Product: {{title}}</p>
+							<p>Product: Pears</p>
+							<p>Expiration Date: {{expdate}}</p>
+							<img src="http://aez3q3ajays12locv9uagjqxg.wpengine.netdna-cdn.com/wp-content/uploads/2012/10/earth-fare-printable-coupon-free-organic-apples.png" width=100% height=100%>
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="#" class="coupon">
+							<p>Product: Oranges</p>
 							<p>Expiration Date: {{expdate}}</p>
 							<img src="http://aez3q3ajays12locv9uagjqxg.wpengine.netdna-cdn.com/wp-content/uploads/2012/10/earth-fare-printable-coupon-free-organic-apples.png" width=100% height=100%>
 						</a>
@@ -47,11 +109,9 @@
 		</div>
 		</script>
 
-
-<!--- whats this lol --->
     	<div id="couponBook">
       		<!-- we will inject templated project HTML code into here -->
-    	<!--</div>-->
+      </div>
 
 <!-- navbar -->
 		<div class="navbar">
