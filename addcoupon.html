@@ -27,24 +27,18 @@
 			Expiration Date:<br>
 			<input type="date" name="expdate" id="expdate" value="2012-10-14"/><br>
 			<br>
+			<script id="tag-template" type="text/x-handlebars-template">
+				<input type="checkbox" name="tag{{index}}" id="tag{{index}}" value={{tagname}}> {{tagname}} <br> 
+			</script>
+
 			Tags:<br>
-			<input type="checkbox" name="tag1" id="tag1" value="My Favorites"> My Favorites<br>
-			<input type="checkbox" name="tag2" id="tag2" value="Groceries"> Groceries<br> 
+			<ul id ="couplist">
+			</ul>
 
-
-			<!--<script id="tag-template" type="text/x-handlebars-template">
-				<input type="checkbox" name="tag{{index}}" id="tag{{index}}" value="{{tagname}}"> {{tagname}} <br>
-			</script> 
-
-			<form id="customtag">
-			</form> -->
-
-			<input type="text" name="newtag" value="Name for new Tag"/><br>
+			<input type="text" name="newtag" value="Name for new Tag"/><br><br>
 			<input type="submit" name="addtag" value="Add Tag">
-
 			<br>
 			<br>
-
 			<input type="submit" name="save" value="Save" >
 		</form>
 

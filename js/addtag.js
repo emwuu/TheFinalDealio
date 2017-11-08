@@ -1,7 +1,7 @@
 
 var tags = [
-  {'tagname': 'My Favorites', 'color': 'orange'},
-  {'tagname': 'Ralphs', 'color': 'pink'}
+  {'tagname': 'My Favorites', 'color': 'orange', 'index': 0},
+  {'tagname': 'Ralphs', 'color': 'pink', 'index': 1}
 ]
 
 function add_tag(){
@@ -12,39 +12,40 @@ function add_tag(){
     ls = tags;
   }
 
-  var f1 = document.getElementById("customtag");
+  var f1 = document.getElementById("#customtag");
   console.log(form1.elements[0].value);
 
   ls.push({'tagname': f1.elements[0].value, 'color': green});
   localStorage.setItem('customTags', JSON.stringify(ls));
 }
 
+/* for handle bars to autopopulate user entered tags */
 $(document).ready(function() {
   console.log('hello world');
 
   // compile the template
-  var src   = $("#tag-template").html();
-  var tplate = Handlebars.compile(src);
+  var source   = $("#tag-template").html();
+  var template = Handlebars.compile(source);
 
-  var pDiv = $("customTag");
+  var parentDiv = $("#couplist");
 
-  var htl = null;
-  var clist = null;
+  var html = null;
+  var cl = null;
   // start with a simple template
   if (localStorage.getItem('customTags') != null){
-    htl = template((JSON.parse(localStorage.getItem('customTags')))[0]);
-    clist = JSON.parse(localStorage.getItem('customTags'));
+    html = template((JSON.parse(localStorage.getItem('customTags')))[0]);
+    cl = JSON.parse(localStorage.getItem('customTags'));
   } else {
-    htl = template(tags[0]);
-    clist = tags;
+    html = template(tags[0]);
+    cl = tags;
   }
-  
-  console.log(htl);
-  pDiv.append(htl);
 
-  for (var i = 1; i < clist.length; i++) {
-    var cData = clist[i];
-    var curHtl = template(cData);
-    pDiv.append(curHtl);
+  console.log(html);
+  parentDiv.append(html);
+
+  for (var i = 1; i < cl.length; i++) {
+    var curData = cl[i];
+    var curHtml = template(curData);
+    parentDiv.append(curHtml);
   }
-});
+})
