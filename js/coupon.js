@@ -20,10 +20,8 @@ $(document).ready(function() {
     cl = couponList;
   }
 
-  console.log(html);
-  parentDiv.append(html);
 
-  for (var i = 1; i < cl.length; i++) {
+  for (var i = 0; i < cl.length; i++) {
     var curData = cl[i];
     var curHtml = template(curData);
     parentDiv.append(curHtml);
