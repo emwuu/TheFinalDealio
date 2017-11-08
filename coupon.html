@@ -10,25 +10,25 @@
 		<link href="css/navbar.css" rel="stylesheet">
 	</head>
 
-	<body>
+	<body id="couponBook">
 		<div class="title">
 			<h1> COUPONS </h1>
 		</div>
 
 		<!-- Dynamically generate -->
 		<script id="entry-template" type="text/x-handlebars-template">
-			<div class="couponList" id="couponList{{index}}">
-				<a href="#" class="coupon">
+			<div class="coupon" id="coupon{{index}}">
+				<!--<a href="#" class="couponnum"> -->
 					<p>Product: {{title}}</p>
 					<p>Expiration Date: {{expdate}}</p>
 					<img src="http://aez3q3ajays12locv9uagjqxg.wpengine.netdna-cdn.com/wp-content/uploads/2012/10/earth-fare-printable-coupon-free-organic-apples.png" width=100% height=100%>
-				</a>
+				<!--</a>-->
 			</div>
 		</script>
 
-    	<div id="couponBook">
+    	<!--<div id="couponBook"> -->
       		<!-- we will inject templated project HTML code into here -->
-    	</div>
+    	<!--</div>-->
 
 
 		<div class="navbar">

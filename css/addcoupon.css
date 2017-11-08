@@ -2,11 +2,6 @@ form{
 	font-size:40px;
 }
 
-#cancel {
-    width:25%;
-    background-color:gray;
-}
-
 
 input[type=text] {
     width: 100%;
