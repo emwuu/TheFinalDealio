@@ -37,14 +37,14 @@
         <!-- sort drop down -->
         <ul class="dropdown-menu">
           <li>
-            <a href="#" class="sort-item">
+            <a href="#" id="expdateselection" onclick="byexpdate()" class="sort-item">
               <i class="fa fa-fw item-left" aria-hidden="true"></i>
               <span class="item-center">Exp Date</span>
             </a>
           </li>
 
           <li>
-            <a href="#" class="sort-item">
+            <a href="#" id="uploaddateselection" onclick="byupload()" class="sort-item">
               <i class="fa fa-fw  item-left" aria-hidden="true"></i>
               <span class="item-center">Upload Date</span>
             </a>
@@ -92,7 +92,7 @@
 
 		<script id="entry-template" type="text/x-handlebars-template">
 				<tr>
-					<td class="{{title}}">
+					<td class="{{title}}" name="{{title}}" id="{{title}}">
 						<a href="#" class="coupon">
 							<p>Product: {{title}}</p>
 							<p>Expiration Date: {{expdate}}</p>
@@ -119,6 +119,7 @@
 		<script src="js/addcoupon.js"></script>
 		<script src="js/coupon.js"></script>
 		<script src="js/handlebars-v4.0.11.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 
 	</body>
 

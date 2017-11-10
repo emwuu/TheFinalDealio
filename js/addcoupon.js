@@ -35,7 +35,7 @@ function save_data(){
   console.log(form1.elements[3].checked);
   var arr = [];
 
-  for (var i = 2; i < 4; i++) {
+  for (var i = 2; i < form1.elements.length-2; i++) {
     if(form1.elements[i].checked){
     	arr.push(form1.elements[i].value);
     }
