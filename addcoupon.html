@@ -5,6 +5,7 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/coupon.css" rel="stylesheet">
 		<link href="css/addcoupon.css" rel="stylesheet">
+		<link href="css/modal.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -35,8 +36,22 @@
 			<ul id ="couplist">
 			</ul>
 
-			<input type="text" name="newtag" value="Name for new Tag"/><br><br>
-			<input type="submit" name="addtag" value="Add Tag">
+		</form>
+
+		<button id="newTag" type="button"> Add Tag </button>
+
+		<div id="myModal" class="modal" action="addcoupon.html" onsubmit="add_tag()">
+			<div class="modal-content">
+				<span class="close"> &times;</span>
+					<form id="frm3">
+						Add Tag:
+						<input type="text" name="name" id="name" placeholder="Type name of new tag here"/><br>
+						<input type="submit" name="save_tag" value="Save tag">
+					</form>
+			</div>
+		</div>
+
+		<form id="frm2" action="coupon.html" onsubmit="save_data()">
 			<br>
 			<br>
 			<input type="submit" name="save" value="Save" >
@@ -49,7 +64,7 @@
 		<script src="js/handlebars-v4.0.11.js"></script>
 		<script src="js/addcoupon.js"></script>
 		<script src="js/addtag.js"></script>
+		<script src="js/mmodal.js"></script>
 
-		
 	</body>
 </html>

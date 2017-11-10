@@ -67,51 +67,52 @@ body {
 	overflow-y: scroll;
 }
 
-/*********** search bar ****************
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+/*********** sort and tags buttons ****************/
 
-body{
-  background: #f2f2f2;
-  font-family: 'Open Sans', sans-serif;
+  span {
+    flex-grow: 1;
+    text-align: left;
+display: inline-block;
+    vertical-align: bottom;
+  max-width: 100px;
+    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  }
+
+  i {
+          align-self:center;
+            right: -6px;
+    position: relative;
+
+  }
+
+
+.dropdown-menu {
+  .sort-item {
+    display: flex;
+
+    .item-left{
+      align-self:center;
+    }
+
+   .item-center{
+     padding-right:10px;
+      flex-grow: 1;
+    }
+
+    .item-right {
+      align-self:center;
+    }
+
+  }
 }
 
-.search {
-  width: 100%;
-  position: relative
+.btn-default {
+      border-color: rgb(46, 109, 164);
 }
 
-.searchTerm {
-  float: left;
-  width: 100%;
-  border: 3px solid black;
-  padding: 5px;
-  height: 20px;
-  border-radius: 5px;
-  outline: none;
-  color: black;
-}
-
-.searchTerm:focus{
-  color: black;
-}
-
-.searchButton {
-  position: absolute;
-  right: -50px;
-  width: 40px;
-  height: 36px;
-  border: 1px solid black;
-  background: black;
-  text-align: center;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-
-
-********* END Search Bar **************/
+/************* search ********************/
 
 .wrap{
   width: 90%;

@@ -7,7 +7,7 @@ $(document).ready(function() {
   var source   = $("#entry-template").html();
   var template = Handlebars.compile(source);
 
-  var parentDiv = $("#couponBook");
+  var parentDiv = $("#myTable");
 
   var html = null;
   var cl = null;
@@ -34,14 +34,13 @@ function myFunction() {
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
+  td = table.getElementsByTagName("td");
+  for (i = 0; i < td.length; i++) {
+    if (td[i]) {
+      if (td[i].className.toUpperCase().indexOf(filter) > -1) {
+        td[i].style.display = "";
       } else {
-        tr[i].style.display = "none";
+        td[i].style.display = "none";
       }
     }
   }

@@ -45,5 +45,3 @@ function save_data(){
   localStorage.setItem('customCoupons', JSON.stringify(list));
 
 }
-
-
