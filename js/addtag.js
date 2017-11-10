@@ -1,7 +1,7 @@
 
 var tags = [
-  {'tagname': 'My Favorites', 'color': 'orange', 'index': 0},
-  {'tagname': 'Ralphs', 'color': 'pink', 'index': 1}
+  {'tagname': 'My Favorites', 'color': 'orange', 'index':0},
+  {'tagname': 'Ralphs', 'color': 'pink', 'index':1}
 ]
 
 function add_tag(){
@@ -12,10 +12,9 @@ function add_tag(){
     ls = tags;
   }
 
-  var f1 = document.getElementById("#customtag");
-  console.log(form1.elements[0].value);
+  var f1 = document.getElementById("frm3");
 
-  ls.push({'tagname': f1.elements[0].value, 'color': green});
+  ls.push({'tagname': f1.elements[0].value, 'color': 'green', 'index': 9});
   localStorage.setItem('customTags', JSON.stringify(ls));
 }
 
@@ -31,6 +30,7 @@ $(document).ready(function() {
 
   var html = null;
   var cl = null;
+  
   // start with a simple template
   if (localStorage.getItem('customTags') != null){
     html = template((JSON.parse(localStorage.getItem('customTags')))[0]);
