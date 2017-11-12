@@ -41,7 +41,8 @@ function save_data(){
     }
   }
 
-  list.push({'title': form1.elements[0].value, 'expdate': form1.elements[1].value, 'tags': arr});
+  
+  list.push({'title': form1.elements[0].value, 'expdate': form1.elements[1].value, 'tags': arr, 'comments':frm2.elements[0].value});
   localStorage.setItem('customCoupons', JSON.stringify(list));
 
 }

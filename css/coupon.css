@@ -149,7 +149,7 @@ display: inline-block;
 }
 
 /**********************************/
-.expiredCoupon {
+.expired {
   float:left;
   display: block;
   border-radius: 25px;
@@ -165,4 +165,8 @@ display: inline-block;
   margin: 25px;
     box-sizing: border-box;
   z-index: -1;
+}
+
+.coupcomments {
+
 }

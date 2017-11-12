@@ -77,8 +77,10 @@ function byexpdate(){
 
   for (i = 0; i < expired.length; i++){
     var curData = expired[i];
+    curData.title="expired";
     var curHtml = template(curData);
     parentDiv.append(curHtml);
+    document.getElementById(expired[i].title).className = "expired";
   }
 }
 
