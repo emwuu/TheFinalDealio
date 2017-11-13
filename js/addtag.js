@@ -40,7 +40,6 @@ $(document).ready(function() {
     cl = tags;
   }
 
-
   for (var i = 0; i < cl.length; i++) {
     var curData = cl[i];
     var curHtml = template(curData);

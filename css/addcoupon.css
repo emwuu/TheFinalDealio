@@ -24,3 +24,8 @@ input[type=text]:focus {
 input[type=date]:focus{
 	border: 5px solid orange;
 }
+
+textarea {
+    border: 5px solid orange;
+    width:100%;
+}

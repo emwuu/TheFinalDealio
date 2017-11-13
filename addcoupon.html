@@ -33,13 +33,12 @@
 				<input type="checkbox" name="tag{{index}}" id="tag{{index}}" value={{tagname}}> {{tagname}} <br>
 			</script>
 
-			Tags:<br>
+			Tags:		<button id="newTag" type="button"> Add Tag </button> <br>
 			<ul id ="couplist">
 			</ul>
 
 		</form>
 
-		<button id="newTag" type="button"> Add Tag </button>
 
 		<div id="myModal" class="modal" onsubmit="add_tag()">
 			<div class="modal-content">
@@ -54,9 +53,14 @@
 
 		<form id="frm2" action="coupon.html" onsubmit="save_data()">
 			<br>
+			<textarea name="comments" rows="5" form="frm2" placeholder="Comments..."> </textarea>
 			<br>
+			<br>
+			<br>
+
 			<input type="submit" name="save" value="Save" >
 		</form>
+
 
 		<a href="coupon.html" id="cancel" class="coupon"> Cancel </a>
 
