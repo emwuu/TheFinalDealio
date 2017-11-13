@@ -149,24 +149,13 @@ display: inline-block;
 }
 
 /**********************************/
-.expired {
-  float:left;
-  display: block;
-  border-radius: 25px;
-  position: relative;
-  text-align: left;
-  padding: 10px 10px;
-  text-decoration: none;
-  font-size: 25px;
-  top: 8%;
-  width: 95%;
-    border: 25px #c9ddf1;
-    background-color: gray;
-  margin: 25px;
-    box-sizing: border-box;
-  z-index: -1;
+
+.expired a {
+  background-color: gray;
+  color: black;
 }
 
-.coupcomments {
-
+.EXPIRED a {
+  background-color: gray;
+  color: black;
 }
