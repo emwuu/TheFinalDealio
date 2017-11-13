@@ -58,9 +58,10 @@ function byexpdate(){
     cl = couponList;
   }
 
-  for (i = 0; i < td.length; i++) {
+  /*for (i = 0; i < td.length; i++) {
     td[i].style.display = "none";
-  }
+  } */
+  $("#myTable tr").remove();
 
   var today = moment().format('YYYY-MM-DD');
   console.log(today);
@@ -105,6 +106,8 @@ function byupload(){
 
   var today = moment().format('YYYY-MM-DD');
 
+  $("#myTable tr").remove();
+  
   // start with a simple template
   if (localStorage.getItem('customCoupons') != null){
     html = template((JSON.parse(localStorage.getItem('customCoupons')))[0]);
