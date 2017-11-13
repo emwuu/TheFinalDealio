@@ -36,7 +36,7 @@ $(document).ready(function() {
 })
 
 function byexpdate(){
-  
+
   var res = null;
   var expired = [];
   var parentDiv = $("#myTable");
@@ -107,7 +107,7 @@ function byupload(){
   var today = moment().format('YYYY-MM-DD');
 
   $("#myTable tr").remove();
-  
+
   // start with a simple template
   if (localStorage.getItem('customCoupons') != null){
     html = template((JSON.parse(localStorage.getItem('customCoupons')))[0]);
@@ -220,12 +220,14 @@ for (var i = 0; i < cl.length; i++) {
 }
 
 //Change select to delete buttons
-$('#select').click(changeText);
-function changeText(event) {
- $(this).text("Delete");
- $('#cancelDelete').show();
+$('#select').click(changeText); //when click select
+function changeText(event){
+ $(this).text("Delete"); //changes select to delete
+ $('#cancelDelete').show(); //shows select option
 }
 
-$('#cancelDelete').click(function(){
-  $('#cancelDelete').hide();
-})
+
+$('#cancelDelete').click(function(){ //when click cancel
+  $('#cancelDelete').hide(); //hides cancel option
+   $('#select').html("Select"); //changes delete to select
+});
