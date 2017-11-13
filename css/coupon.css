@@ -8,14 +8,35 @@
 	height: 100px;
 }
 
-.title h1 {
+#title{
 	text-align:center;
 	width:100%;
-	display: block;
+	display: inline-block;
 	color: white;
 	padding: 14px 15px;
 	text-decoration: none;
 	font-size:70px;
+	position: relative;
+}
+
+#select{
+	text-align:right;
+	vertical-align: middle;
+	display: inline-block;
+	color: white;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font-size: 20px;
+}
+
+#cancelDelete{
+	text-align:left;
+	vertical-align: middle;
+	display: none;
+	color: white;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font-size: 20px;
 }
 
 .title img{
