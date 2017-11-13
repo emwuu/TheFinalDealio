@@ -11,11 +11,11 @@
 	height: 200px;
 }
 .navbar a {
-	float:left;
+	float:center;
 	display: block;
 	color: #f2f2f2;
 	text-align: center;
-	padding: 14px 15px;
+	padding: 14px 70px;
 	text-decoration: none;
 	font-size: 50px;
 }
