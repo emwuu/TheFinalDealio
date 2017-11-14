@@ -41,8 +41,8 @@
     background-color: orange;
 	margin: 25px;
     box-sizing: border-box;
-	z-index: -1;
 }
+
 
 .coupon a {
 	text-align:center;
@@ -123,7 +123,6 @@ display: inline-block;
 }
 
 #myInput {
-  background-image: url('/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
   width: 100%;
@@ -150,12 +149,12 @@ display: inline-block;
 
 /**********************************/
 
-.expired a {
+.expired .coupon.modalClickable {
   background-color: gray;
   color: black;
 }
 
-.EXPIRED a {
+.EXPIRED .coupon.modalClickable {
   background-color: gray;
-  color: black;
+
 }

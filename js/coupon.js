@@ -58,9 +58,6 @@ function byexpdate(){
     cl = couponList;
   }
 
-  /*for (i = 0; i < td.length; i++) {
-    td[i].style.display = "none";
-  } */
   $("#myTable tr").remove();
 
   var today = moment().format('YYYY-MM-DD');
@@ -84,7 +81,7 @@ function byexpdate(){
 
   for (i = 0; i < expired.length; i++){
     var curData = expired[i];
-    curData.title="EXPIRED";
+    //curData.title="EXPIRED";
     var curHtml = template(curData);
     parentDiv.append(curHtml);
     document.getElementById(expired[i].title).className = "expired";
@@ -107,7 +104,7 @@ function byupload(){
   var today = moment().format('YYYY-MM-DD');
 
   $("#myTable tr").remove();
-  
+
   // start with a simple template
   if (localStorage.getItem('customCoupons') != null){
     html = template((JSON.parse(localStorage.getItem('customCoupons')))[0]);
@@ -124,7 +121,7 @@ function byupload(){
   for (i = 0; i < cl.length; i++) {
       var curData = cl[i];
       if (today > cl[i].expdate){
-        curData.title="EXPIRED";
+        //curData.title="EXPIRED";
       }
       var curHtml = template(curData);
       parentDiv.append(curHtml);

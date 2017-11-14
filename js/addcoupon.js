@@ -1,7 +1,7 @@
 'use strict';
 
 
-var index = 1;
+var index = 2;
 
 var couponList = [
   {'title': 'Apples', 'expdate': '2012-10-14', 'tags': ['My Favorites', 'Groceries']},

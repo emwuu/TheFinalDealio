@@ -8,6 +8,7 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/coupon.css" rel="stylesheet">
 		<link href="css/navbar.css" rel="stylesheet">
+    <link href="css/modal.css" rel="stylesheet">
 	</head>
 
 	<body id="couponBook">
@@ -92,15 +93,34 @@
 
 		<script id="entry-template" type="text/x-handlebars-template">
 				<tr>
-					<td class="{{title}}" name="{{title}}" id="{{title}}">
-						<a href="#" class="coupon">
+					<td class="{{title}}" name="{{title}}" id="{{title}}" onclick="coupmodalfunc(this)">
+            <div class="coupon modalClickable">
+						<!-- <a href="" class="coupon"> -->
 							<p>Product: {{title}}</p>
 							<p>Expiration Date: {{expdate}}</p>
 							<img src="http://aez3q3ajays12locv9uagjqxg.wpengine.netdna-cdn.com/wp-content/uploads/2012/10/earth-fare-printable-coupon-free-organic-apples.png" width=100% height=100%>
-						</a>
+            <!--</a>-->
+          </div>
 					</td>
 				</tr>
 		</script>
+
+    <!-- modal format for individual coupons -->
+    <div id="coupModal" class="modal" onsubmit='add_tag()'>
+      <div class="modal-content">
+        <span class="close"> &times;</span>
+        <ul class="info" id="infomo">
+        </ul>
+      </div>
+    </div>
+
+    <script id="coupon-modal-template" type="text/x-handlebars-template">
+        <img src="http://aez3q3ajays12locv9uagjqxg.wpengine.netdna-cdn.com/wp-content/uploads/2012/10/earth-fare-printable-coupon-free-organic-apples.png" width=100% height=100%>
+          <p> Product: {{title}}</p>
+          <p> Expiration Date: {{expdate}} </p>
+          <p> Tags: {{tags}} </p>
+          <p> Comments: {{comments}} </p>
+    </script>
 
 
 <!-- navbar -->
@@ -118,6 +138,7 @@
 		<script src="js/bootstrap.bundle.js"></script>
 		<script src="js/addcoupon.js"></script>
 		<script src="js/coupon.js"></script>
+    <script src="js/couponModal.js"></script>
 		<script src="js/handlebars-v4.0.11.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 
