@@ -37,6 +37,7 @@ $(document).ready(function() {
 
 function byexpdate(){
 
+  document.getElementById("sb").textContent="Exp Date";
   var res = null;
   var expired = [];
   var parentDiv = $("#myTable");
@@ -89,6 +90,7 @@ function byexpdate(){
 }
 
 function byupload(){
+  document.getElementById("sb").textContent="Upload Date";
   var res = null;
   var expired = [];
   var parentDiv = $("#myTable");

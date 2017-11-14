@@ -4,8 +4,8 @@
 var index = 2;
 
 var couponList = [
-  {'title': 'Apples', 'expdate': '2012-10-14', 'tags': ['My Favorites', 'Groceries']},
-  {'title': 'Fuji', 'expdate': '2018-11-16', 'tags': ['My Favorites']}
+  {'title': '$2 off New Apple Flavored Toothpaste', 'expdate': '2018-01-04', 'tags': ['My Favorites']},
+  {'title': '$2 off Kelloggs Fruit Loops', 'expdate': '2017-12-16', 'tags': ['My Favorites', 'Groceries']}
 ]
 
 
