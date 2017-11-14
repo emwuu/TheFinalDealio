@@ -1,43 +1,7 @@
-body {
-	background-color: white;
-	overflow-y: scroll;
-	
-}
-
-div {
-    display: -webkit-flex;
-    -webkit-justify-content: space-around;
-    display: flex;
-    justify-content: space-around;
-
-}
-
-.navbar {
-	margin-left=0;
-	background-color: #333;
-	overflow: hidden;
-	position: fixed;
-	bottom: 0;
-	margin-bottom: 0px;
-	width: 100%;
-}
-
-#navbar{
-	height: 200px;
-}
-
-.navbar a {
-	float:left;
-	display: block;
-	color: #f2f2f2;
-	text-align: center;
-	padding: 14px 15px;
-	text-decoration: none;
-	font-size: 50px;
-}
-
-.navbar a:hover {
-	color: paleturquoise;
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+	color: white;
+    background: white;
 }
 
 .title {
@@ -67,10 +31,18 @@ div {
 	vertical-align: middle;
 }
 
-.logout {
-	font-size:70px;
-	font-weight: 300;
-	height: 200px;
+.button{
+	display: block;
+	position: relative;
+	top: 50px;
+	appearance: none;
+	outline: 0;
+	background-color: skyblue;
+	border: 0;
+	padding: 20px 30px;
+	width: 100%;
+	cursor: pointer;
+	font-size: 40px;
+	text-align:center;
 }
-
-}
+ 

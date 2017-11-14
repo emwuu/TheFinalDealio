@@ -4,6 +4,7 @@
 <html>
 	<head>
 		<title> Coupon Page </title>
+
 		<link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/coupon.css" rel="stylesheet">
@@ -13,13 +14,16 @@
 
 	<body id="couponBook">
 		<div class="title">
-			<h1> COUPONS </h1>
+			<p id="cancelDelete">Cancel</p>
+			<h1 id="title">COUPONS</h1>
+			<p id="select">Select</p>
 		</div>
+
 
 
 	<!-- w3 search bar -->
 		<div class="search">
-				 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search name of coupon" title="Type in a name">
+				 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Coupon Name" title="Type in a name">
  		</div>
 
 <!-- sort by and filter tags buttons -->
@@ -62,21 +66,15 @@
         </button>
 
         <!-- tags drop down -->
-        <ul class="dropdown-menu">
-          <li>
-            <a href="#" class="sort-item">
-              <i class="fa fa-fw item-left" aria-hidden="true"></i>
-              <span class="item-center">My Favorites</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="sort-item">
-              <i class="fa fa-fw  item-left" aria-hidden="true"></i>
-              <span class="item-center">Groceries</span>
-
-            </a>
-          </li>
+        <ul id="tagsUL" class="dropdown-menu" >
+					<script id="filterTags-template" type="text/x-handlebars-template">
+						<li class="{{tagname}}" onclick="displayTaggedCoupon(this)">
+	            <a href="#" class="sort-item">
+	              <i class="fa fa-fw item-left" aria-hidden="true"></i>
+	              <span class="item-center"> {{tagname}} </span>
+	            </a>
+	          </li>
+					</script>
         </ul>
       </div>
   </div>
@@ -136,6 +134,7 @@
 <!-- javascript links -->
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="js/bootstrap.bundle.js"></script>
+		<script src="js/handlebars-v4.0.11.js"></script>
 		<script src="js/addcoupon.js"></script>
 		<script src="js/coupon.js"></script>
     <script src="js/couponModal.js"></script>

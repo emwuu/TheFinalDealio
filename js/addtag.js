@@ -30,7 +30,7 @@ $(document).ready(function() {
 
   var html = null;
   var cl = null;
-  
+
   // start with a simple template
   if (localStorage.getItem('customTags') != null){
     html = template((JSON.parse(localStorage.getItem('customTags')))[0]);
