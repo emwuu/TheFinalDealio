@@ -229,7 +229,6 @@ $('#select').click(changeText); //when click select
 function changeText(event){
   var x = document.getElementById("select");
   var txt = x.textContent;
-  alert(txt);
   if (txt === "Delete"){
     var form = document.getElementById("deletechecklist");
     var len = form.length;
