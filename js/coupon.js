@@ -31,7 +31,8 @@ $(document).ready(function() {
     var curHtml = template(curData);
     parentDiv.append(curHtml);
     if (today > cl[i].expdate){
-      document.getElementById(cl[i].title).className = "expired";
+      var str = "expired ";
+      document.getElementById(cl[i].title).className = str.concat(cl[i].title);
     }
   }
 })
@@ -83,10 +84,12 @@ function byexpdate(){
 
   for (i = 0; i < expired.length; i++){
     var curData = expired[i];
-    //curData.title="EXPIRED";
     var curHtml = template(curData);
     parentDiv.append(curHtml);
-    document.getElementById(expired[i].title).className = "expired";
+    //document.getElementById(expired[i].title).className = "expired";
+
+    var str = "expired ";
+      document.getElementById(cl[i].title).className = str.concat(cl[i].title);
   }
 }
 
@@ -123,13 +126,12 @@ function byupload(){
 
   for (i = 0; i < cl.length; i++) {
       var curData = cl[i];
-      if (today > cl[i].expdate){
-        //curData.title="EXPIRED";
-      }
       var curHtml = template(curData);
       parentDiv.append(curHtml);
       if (today > cl[i].expdate){
-        document.getElementById(cl[i].title).className = "expired";
+          var str = "expired ";
+      document.getElementById(cl[i].title).className = str.concat(cl[i].title);
+        //document.getElementById(cl[i].title).className = "expired";
       }
   }
 
