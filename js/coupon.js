@@ -61,11 +61,7 @@ function byexpdate(){
     cl = couponList;
   }
 
-  var  input = document.getElementById("myInput"); //grabs input from search bar
-  var filter = input.value.toUpperCase();
-  if (filter == null && filter === ""){
-    $("#myTable tr").remove();
-  }
+  $("#myTable tr").remove();
 
   var today = moment().format('YYYY-MM-DD');
   console.log(today);
@@ -113,11 +109,7 @@ function byupload(){
 
   var today = moment().format('YYYY-MM-DD');
 
-  var  input = document.getElementById("myInput"); //grabs input from search bar
-  var filter = input.value.toUpperCase();
-  if (filter == null && filter === ""){
     $("#myTable tr").remove();
-  }
 
   // start with a simple template
   if (localStorage.getItem('customCoupons') != null){
@@ -164,12 +156,30 @@ function myFunction() {
 }
 
 //tags LEFT OFF @ HOW TO GRAB TAGNAME CLICKED ON AS A VARIABLE
-function displayTaggedCoupon(tag) {
-  var input, filter, table, tr, td, tag;
-  filter = tag.className.toUpperCase();
+function displayTaggedCoupon() {
+  /*var input, filter, table, tr, td, tag;
   // list = document.getElementsByTagName("li");
   // filter = list.className.toUpperCase() //tag name stored as filter
-  tagList = JSON.parse(localStorage.getItem('customCoupons'))
+  cList = JSON.parse(localStorage.getItem('customCoupons'));
+  form = document.getElementById("tagdpd");
+
+  //first iterate through all of the form elements that are checkboxes
+  for (var i = 0; i < form.length; i++){
+    //if the checkbox is checked
+    if (form.elements[i].checked){
+      //then iterate through all of the customCoupons
+      for (var j = 0; j < cList.length; j++){
+        //and iterate through the tags for each coupon
+        for (var k = 0; k < cList[j].tags.length; k++) {
+
+          if(tagList[j].tags[k] === form.elements[i].name) {
+            //then you want to show this element 
+            //???
+          }
+      }
+    }
+  }*/
+
   table = document.getElementById("myTable"); //defined so we can get all the td
   td = table.getElementsByTagName("td"); //asisgns td variable to every td tag
   for (i = 0; i < td.length; i++) { //for all items that have td tag
