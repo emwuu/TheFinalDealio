@@ -183,10 +183,6 @@ display: inline-block;
 .checks {
     display: none;
     float:right;
-}
-
-input[type=checkbox]
-{
   /* https://stackoverflow.com/questions/306924/checkbox-size-in-html-css */
   /* Double-sized Checkboxes */
   -ms-transform: scale(2); /* IE */

@@ -68,14 +68,17 @@
 
         <!-- tags drop down -->
         <ul id="tagsUL" class="dropdown-menu" >
+          <form id="tagdpd">
 					<script id="filterTags-template" type="text/x-handlebars-template">
 						<li class="{{tagname}}" onclick="displayTaggedCoupon(this)">
-	            <a href="#" class="sort-item">
+	            <!-- <a href="#" class="sort-item"> -->
+                <input type="checkbox" class="sort-item" name="{{tagname}}"> {{tagname}} <br>
 	              <i class="fa fa-fw item-left" aria-hidden="true"></i>
-	              <span class="item-center"> {{tagname}} </span>
-	            </a>
+	              <!--<span class="item-center"> {{tagname}} </span>-->
+	            <!--</a>-->
 	          </li>
 					</script>
+        </form>
         </ul>
       </div>
   </div>

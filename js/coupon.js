@@ -61,7 +61,11 @@ function byexpdate(){
     cl = couponList;
   }
 
-  $("#myTable tr").remove();
+  var  input = document.getElementById("myInput"); //grabs input from search bar
+  var filter = input.value.toUpperCase();
+  if (filter == null && filter === ""){
+    $("#myTable tr").remove();
+  }
 
   var today = moment().format('YYYY-MM-DD');
   console.log(today);
@@ -109,7 +113,11 @@ function byupload(){
 
   var today = moment().format('YYYY-MM-DD');
 
-  $("#myTable tr").remove();
+  var  input = document.getElementById("myInput"); //grabs input from search bar
+  var filter = input.value.toUpperCase();
+  if (filter == null && filter === ""){
+    $("#myTable tr").remove();
+  }
 
   // start with a simple template
   if (localStorage.getItem('customCoupons') != null){
@@ -179,18 +187,6 @@ function displayTaggedCoupon(tag) {
 }
 
 
-// var input, filter, ul, li, a, i;
-//    input = document.getElementById("myInput");
-//    filter = input.value.toUpperCase();
-//    ul = document.getElementById("myUL");
-//    li = ul.getElementsByTagName("li");
-//    for (i = 0; i < li.length; i++) {
-//        a = li[i].getElementsByTagName("a")[0];
-//        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-//            li[i].style.display = "";
-//        } else {
-//            li[i].style.display = "none";
-
 //Auto ads new tags to filter tag list
 var tags = [
   {'tagname': 'My Favorites', 'color': 'orange', 'index':0},
@@ -230,6 +226,7 @@ function changeText(event){
   var x = document.getElementById("select");
   var txt = x.textContent;
   if (txt === "Delete"){
+    alert("Are you sure you want to delete?");
     var form = document.getElementById("deletechecklist");
     var len = form.length;
 
