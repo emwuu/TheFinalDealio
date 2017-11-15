@@ -179,3 +179,19 @@ display: inline-block;
   background-color: gray;
 
 }
+
+.checks {
+    display: none;
+    float:right;
+}
+
+input[type=checkbox]
+{
+  /* https://stackoverflow.com/questions/306924/checkbox-size-in-html-css */
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 10px;
+}

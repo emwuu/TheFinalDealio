@@ -16,7 +16,8 @@
 		<div class="title">
 			<p id="cancelDelete">Cancel</p>
 			<h1 id="title">COUPONS</h1>
-			<p id="select">Select</p>
+      <button id="select"> Select </button>
+
 		</div>
 
 
@@ -84,20 +85,21 @@
 <!--- END Sort and Filter Button -->
 
 		<!-- Dynamically generate coupons -->
-		<div class="couponList" id="couponList{{index}}">
-			<table id="myTable">
-			</table>
+		<div class="couponList" id="couponList{{index}}"> <!--couponList{{index}}-->
+      <form id="deletechecklist" onsubmit="">
+			   <table id="myTable">
+			   </table>
+      </form>
 		</div>
 
 		<script id="entry-template" type="text/x-handlebars-template">
 				<tr>
 					<td class="{{title}}" name="{{title}}" id="{{title}}" onclick="coupmodalfunc(this)">
+            <input type="checkbox" class="checks" name="{{title}}"><br>
             <div class="coupon modalClickable">
-						<!-- <a href="" class="coupon"> -->
 							<p>Product: {{title}}</p>
 							<p>Expiration Date: {{expdate}}</p>
 							<img src="http://aez3q3ajays12locv9uagjqxg.wpengine.netdna-cdn.com/wp-content/uploads/2012/10/earth-fare-printable-coupon-free-organic-apples.png" width=100% height=100%>
-            <!--</a>-->
           </div>
 					</td>
 				</tr>

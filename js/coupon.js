@@ -3,6 +3,7 @@
 $(document).ready(function() {
   console.log('hello world');
 
+
   // compile the template
   var source   = $("#entry-template").html();
   var template = Handlebars.compile(source);
@@ -218,15 +219,49 @@ for (var i = 0; i < cl.length; i++) {
   parentDiv.append(curHtml);
 }
 
+
 //Change select to delete buttons
 $('#select').click(changeText); //when click select
+
+
 function changeText(event){
+  var x = document.getElementById("select");
+  var txt = x.textContent;
+  alert(txt);
+  if (txt === "Delete"){
+    var form = document.getElementById("deletechecklist");
+    var len = form.length;
+
+    var cl = JSON.parse(localStorage.getItem('customCoupons'));
+    console.log("check1");
+    console.log(cl.length);
+    //iterate through checklist to see if coupons are checked
+    for (var i=0; i< len; i++){
+      if(form.elements[i].checked){
+        var temp = form.elements[i];
+        for(var j=0; j<len; j++){
+          if (temp.name === cl[j].title){
+            cl.splice(j, 1);
+            console.log("check2");
+            console.log(cl.length);
+            localStorage.setItem('customCoupons', JSON.stringify(cl));
+            window.location.reload(true);
+            break;
+          }
+        }
+      }
+    }
+  }
+
  $(this).text("Delete"); //changes select to delete
  $('#cancelDelete').show(); //shows select option
+ $('.checks').show(); //shows checkboxes to select coupons to delete
 }
 
 
 $('#cancelDelete').click(function(){ //when click cancel
   $('#cancelDelete').hide(); //hides cancel option
    $('#select').html("Select"); //changes delete to select
+   var z = document.getElementsByClassName('.checks')
+   $('.checks').hide();
 });
