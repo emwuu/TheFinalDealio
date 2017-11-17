@@ -1,3 +1,10 @@
+.panel button{
+  background-color: #3b50db;
+  font-size:30px;
+  width: 300px;
+}
+
+
 .title {
 	margin-left: 0;
 	background-color: #333;
@@ -23,10 +30,10 @@
 	text-align:right;
 	vertical-align: middle;
 	display: inline-block;
-	color: white;
+	color: black;
 	padding-top: 30px;
 	padding-bottom: 30px;
-	font-size: 20px;
+	font-size: 30px;
 }
 
 #cancelDelete{
@@ -36,7 +43,7 @@
 	color: white;
 	padding-top: 30px;
 	padding-bottom: 30px;
-	font-size: 20px;
+	font-size: 30px;
 }
 
 .title img{
@@ -46,7 +53,6 @@
 	vertical-align: middle;
 }
 
-
 .coupon {
 	float:left;
 	display: block;
@@ -55,7 +61,7 @@
 	text-align: left;
 	padding: 10px 10px;
 	text-decoration: none;
-	font-size: 25px;
+	font-size: 40px;
 	top: 8%;
 	width: 95%;
     border: 25px #c9ddf1;
@@ -63,7 +69,6 @@
 	margin: 25px;
     box-sizing: border-box;
 }
-
 
 .coupon a {
 	text-align:center;
@@ -80,7 +85,6 @@ div {
     -webkit-justify-content: space-around;
     display: flex;
     justify-content: space-around;
-
 }
 
 body {
@@ -93,23 +97,26 @@ body {
   span {
     flex-grow: 1;
     text-align: left;
-display: inline-block;
+    display: inline-block;
     vertical-align: bottom;
-  max-width: 100px;
+    max-width: 100px;
     overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   i {
-          align-self:center;
-            right: -6px;
+    align-self:center;
+    right: -6px;
     position: relative;
-
   }
 
 
 .dropdown-menu {
+  background-color: white;
+  font-size:30px;
+  width: 300px;
+
   .sort-item {
     display: flex;
 
@@ -118,14 +125,13 @@ display: inline-block;
     }
 
    .item-center{
-     padding-right:10px;
+     padding-right:15px;
       flex-grow: 1;
     }
 
     .item-right {
       align-self:center;
     }
-
   }
 }
 
@@ -147,8 +153,8 @@ display: inline-block;
   background-position: 10px 10px;
   background-repeat: no-repeat;
   width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
+  font-size: 35px;
+  padding: 12px 20px 12px 60px;
   border: 1px solid #ddd;
 }
 
@@ -171,7 +177,7 @@ display: inline-block;
 /**********************************/
 
 .expired .coupon.modalClickable {
-  background-color: gray;
+  background-color: lightgray;
   color: black;
 }
 
@@ -185,9 +191,9 @@ display: inline-block;
     float:right;
   /* https://stackoverflow.com/questions/306924/checkbox-size-in-html-css */
   /* Double-sized Checkboxes */
-  -ms-transform: scale(2); /* IE */
-  -moz-transform: scale(2); /* FF */
-  -webkit-transform: scale(2); /* Safari and Chrome */
-  -o-transform: scale(2); /* Opera */
+  -ms-transform: scale(4); /* IE */
+  -moz-transform: scale(4); /* FF */
+  -webkit-transform: scale(4); /* Safari and Chrome */
+  -o-transform: scale(4); /* Opera */
   padding: 10px;
 }

@@ -10,7 +10,7 @@
 
 	<body>
 		<div class="title">
-			<h1> Add Coupon </h1>
+			<h1> ADD COUPON </h1>
 		</div>
 
 		<div class="coupon1">
@@ -33,7 +33,7 @@
 				<input type="checkbox" name="tag{{index}}" id="tag{{index}}" value={{tagname}}> {{tagname}} <br>
 			</script>
 
-			Tags:		<button id="newTag" type="button"> Add Tag </button> <br>
+			Tags:		<button id="newTag" type="button"> Add Custom Tag </button> <br>
 			<ul id ="couplist">
 			</ul>
 
@@ -51,18 +51,18 @@
 			</div>
 		</div>
 
+
 		<form id="frm2" action="coupon.html" onsubmit="save_data()">
+			Comments:
 			<br>
 			<textarea name="comments" rows="5" form="frm2" placeholder="Comments..."> </textarea>
 			<br>
 			<br>
-			<br>
-
 			<input type="submit" name="save" value="Save" >
 		</form>
-
-
+		<br>
 		<a href="coupon.html" id="cancel" class="coupon"> Cancel </a>
+		<br>
 
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="js/bootstrap.bundle.js"></script>
