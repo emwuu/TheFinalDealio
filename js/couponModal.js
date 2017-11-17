@@ -40,13 +40,12 @@ function coupmodalfunc(clickable){
   		//search for a match
   		for (var i = 0; i < cl.length; i++) {
   			console.log(clickable.id);
-  			if (clickable.id == cl[i].title){
+  			if (clickable.id == (cl[i].title).concat(0)){
+          console.log((cl[i].title).concat(0));
   				$("#infomo").empty();
     			var curData = cl[i];
-				var curHtml = template(curData);
+				  var curHtml = template(curData);
     			parentDiv.append(curHtml);
-    			if (today > cl[i].expdate){
-    			}
     			break;
     		}
   		}
