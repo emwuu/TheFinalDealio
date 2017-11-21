@@ -38,7 +38,7 @@ $(document).ready(function() {
 })
 
 function byexpdate(){
-
+  myFunction();
   document.getElementById("sb").textContent="Exp Date";
   var res = null;
   var expired = [];
@@ -47,12 +47,14 @@ function byexpdate(){
   var template = Handlebars.compile(source);
   var html = null;
   var cl = null;
-  var i;
+  var i, j;
 
   var table = document.getElementById("myTable");
   var td = table.getElementsByTagName("td");
+  var visibleCoupons = [];
 
-  // start with a simple template
+
+  // get from local storage
   if (localStorage.getItem('customCoupons') != null){
     html = template((JSON.parse(localStorage.getItem('customCoupons')))[0]);
     cl = JSON.parse(localStorage.getItem('customCoupons'));
@@ -61,12 +63,28 @@ function byexpdate(){
     cl = couponList;
   }
 
-  $("#myTable tr").remove();
+  //iterate through table, add all the ones that visible to array
+  for (i = 0; i < td.length; i++){
+    //if visible, add to visibleCoupons to later sort
+    if (td[i].style.display != "none"){
+      //using id, find object in localStorage
+      for (j=0; j < cl.length; j++){
+        //match title
+        if (td[i].id === cl[j].title){
+          //add to visibleCoupons
+          visibleCoupons.push(cl[j]);
+          break;
+        }
+      }
+    }
+  }
 
   var today = moment().format('YYYY-MM-DD');
-  console.log(today);
 
-  res = cl.sort(function(a, b) {
+  //clear table
+  $("#myTable tr").remove();
+
+  res = visibleCoupons.sort(function(a, b) {
     return (a.expdate < b.expdate) ? -1 : ((a.expdate > b.expdate) ? 1 : 0);
   });
 
@@ -86,14 +104,15 @@ function byexpdate(){
     var curData = expired[i];
     var curHtml = template(curData);
     parentDiv.append(curHtml);
-    //document.getElementById(expired[i].title).className = "expired";
-
     var str = "expired ";
-      document.getElementById(cl[i].title).className = str.concat(cl[i].title);
+    document.getElementById(expired[i].title).className = str.concat(expired[i].title);
   }
 }
 
 function byupload(){
+  //reshow everything that search allows
+  myFunction();
+
   document.getElementById("sb").textContent="Upload Date";
   var res = null;
   var expired = [];
@@ -109,7 +128,7 @@ function byupload(){
 
   var today = moment().format('YYYY-MM-DD');
 
-    $("#myTable tr").remove();
+  var visibleCoupons = [];
 
   // start with a simple template
   if (localStorage.getItem('customCoupons') != null){
@@ -120,22 +139,44 @@ function byupload(){
     cl = couponList;
   }
 
-  for (i = 0; i < td.length; i++) {
-    td[i].style.display = "none";
-  }
-
-  for (i = 0; i < cl.length; i++) {
-      var curData = cl[i];
-      var curHtml = template(curData);
-      parentDiv.append(curHtml);
-      if (today > cl[i].expdate){
-          var str = "expired ";
-      document.getElementById(cl[i].title).className = str.concat(cl[i].title);
-        //document.getElementById(cl[i].title).className = "expired";
+//iterate through table, add all the ones that visible to array
+  for (i = 0; i < td.length; i++){
+    //if visible, add to visibleCoupons to later sort
+    if (td[i].style.display != "none"){
+      //using id, find object in localStorage
+      for (j=0; j < cl.length; j++){
+        //match title
+        if (td[i].id === cl[j].title){
+          //add to visibleCoupons
+          visibleCoupons.push(cl[j]);
+          break;
+        }
       }
+    }
   }
 
-}
+  $("#myTable tr").remove();
+
+  //want to append html in reverse order; which one appears last in localStorage
+  //iterate through local storage backwards 
+  for (i = cl.length-1; i >= 0; i--) {
+    var curData = cl[i];
+    var curHtml = template(curData);
+    //see if it matches any of ones in the visibleCoupons list
+    for (j = 0; j < visibleCoupons.length; j++){
+      console.log(cl[i].title);
+      console.log(visibleCoupons[j].title);
+      if (cl[i].title === visibleCoupons[j].title){
+        console.log("equals");
+        parentDiv.append(curHtml);
+        if (today > cl[i].expdate){
+          var str = "expired ";
+          document.getElementById(cl[i].title).className = str.concat(cl[i].title);
+        }
+      }
+    } 
+  } //end for loop
+}//end function
 
 // Search bar
 function myFunction() {
