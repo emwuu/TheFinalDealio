@@ -1,7 +1,8 @@
-
+var sortOption = 0;
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
   console.log('hello world');
+  sortOption = 0;
 
 
   // compile the template
@@ -37,8 +38,66 @@ $(document).ready(function() {
   }
 })
 
-function byexpdate(){
+
+function reset(){
+  var source   = $("#entry-template").html();
+  var template = Handlebars.compile(source);
+
+  var parentDiv = $("#myTable");
+
+  $("#myTable tr").remove();
+  var html = null;
+  var cl = null;
+  // start with a simple template
+  if (localStorage.getItem('customCoupons') != null){
+    html = template((JSON.parse(localStorage.getItem('customCoupons')))[0]);
+    cl = JSON.parse(localStorage.getItem('customCoupons'));
+  } else {
+    html = template(couponList[0]);
+    cl = couponList;
+  }
+
+  var today = moment().format('YYYY-MM-DD');
+
+  for (var i = 0; i < cl.length; i++) {
+    var curData = cl[i];
+    if (today > cl[i].expdate){
+       //curData.title="EXPIRED";
+    }
+    var curHtml = template(curData);
+    parentDiv.append(curHtml);
+    if (today > cl[i].expdate){
+      var str = "expired ";
+      document.getElementById(cl[i].title).className = str.concat(cl[i].title);
+    }
+  }
+}
+
+function organize(choice){
+  reset();
+
+  //sort by ExpDate
+  if (choice == 1){
+    sortOption = 1;
+  }
+  //sort by UploadDate
+  else if (choice == 2){
+    sortOption = 2;
+  }
+  console.log("sort OPtion");
+  console.log(sortOption);
+
+  //always search-filter-sort
   myFunction();
+  if (choice == 1){
+    byexpdate();
+  } else if (choice == 2){
+    byupload();
+  }
+  displayTaggedCoupon();
+}
+
+function byexpdate(){
   document.getElementById("sb").textContent="Exp Date";
   var res = null;
   var expired = [];
@@ -73,6 +132,8 @@ function byexpdate(){
         if (td[i].id === cl[j].title){
           //add to visibleCoupons
           visibleCoupons.push(cl[j]);
+          //remove coupon, to be added later
+          //document.getElementById(td[i].id).remove();
           break;
         }
       }
@@ -81,13 +142,16 @@ function byexpdate(){
 
   var today = moment().format('YYYY-MM-DD');
 
+  for (i = 0; i < td.length; i++){
+    td[i].style.display = "none";
+  }
+
   //clear table
   $("#myTable tr").remove();
 
   res = visibleCoupons.sort(function(a, b) {
     return (a.expdate < b.expdate) ? -1 : ((a.expdate > b.expdate) ? 1 : 0);
   });
-
 
   for (i = 0; i < res.length; i++) {
       var curData = res[i];
@@ -110,9 +174,6 @@ function byexpdate(){
 }
 
 function byupload(){
-  //reshow everything that search allows
-  myFunction();
-
   document.getElementById("sb").textContent="Upload Date";
   var res = null;
   var expired = [];
@@ -149,6 +210,7 @@ function byupload(){
         if (td[i].id === cl[j].title){
           //add to visibleCoupons
           visibleCoupons.push(cl[j]);
+          //document.getElementById(td[i].id).remove();
           break;
         }
       }
@@ -187,7 +249,7 @@ function myFunction() {
   td = table.getElementsByTagName("td"); //asisgns td variable to every td tag
   for (i = 0; i < td.length; i++) { //for all items that have td tag
     if (td[i]) { //td[i] refers to a single td
-      if (td[i].className.toUpperCase().indexOf(filter) > -1) { // -1 means no match
+      if (td[i].className.toUpperCase().indexOf(filter) > -1) { // -1 means no match, if match and already visible
         td[i].style.display = ""; //if returns > -1 (match), do nothing (aka keep showing the item)
       } else {
         td[i].style.display = "none"; //if returns -1 (no match), then hide it
@@ -199,8 +261,6 @@ function myFunction() {
 
 //tags LEFT OFF @ HOW TO GRAB TAGNAME CLICKED ON AS A VARIABLE
 function displayTaggedCoupon() {
-  //show everything again
-  myFunction();
 
   table = document.getElementById("myTable"); //defined so we can get all the td
   td = table.getElementsByTagName("td"); //asisgns td variable to every td tag
@@ -213,8 +273,6 @@ function displayTaggedCoupon() {
     listofcoups = couponList;
   }
 
-  console.log(form.elements[0]);
-
   //add tags from submission form to checked tags array
   for(i = 0; i < form.length; i++){
     if (form.elements[i].checked){
@@ -222,8 +280,6 @@ function displayTaggedCoupon() {
     }
   }
 
-  console.log("checkedtags");
-  console.log(checkedtags);
 
   //iterate through table
   for (i = 0; i < td.length; i++) { 
@@ -233,24 +289,17 @@ function displayTaggedCoupon() {
     } else {
       var temp = null;
       //find corresponding item in localStorage
-      console.log(listofcoups);
       for (k = 0; k < listofcoups.length; k++){
-        console.log("title");
-        console.log(listofcoups[k].title);
         if (td[i].id === listofcoups[k].title){
           temp = listofcoups[k];
         }
       }
-      console.log("temp");
-      console.log(temp);
 
       //0 for no, 1 for yes
       var check = 0;
 
       //check if the coupon has any checked tag
       for (j = 0; j <checkedtags.length; j++){
-        console.log("temp tags"); 
-        console.log(temp.tags);
         for (p = 0; p < temp.tags.length; p++){
           if (checkedtags[j] === temp.tags[p]){
             check = 1;
@@ -261,8 +310,6 @@ function displayTaggedCoupon() {
 
       if (check == 0){
         td[i].style.display == "none";
-        console.log("INVISIBLE!");
-        console.log(td[i].name);
         document.getElementById(td[i].id).style.display="none";
       }
     } // else

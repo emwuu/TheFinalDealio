@@ -24,7 +24,7 @@
 
 	<!-- w3 search bar -->
 		<div class="search">
-				 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Coupon Name" title="Type in a name">
+				 <input type="text" id="myInput" onkeyup="organize(0)" placeholder="Search Coupon Name" title="Type in a name">
  		</div>
 
 <!-- sort by and filter tags buttons -->
@@ -43,14 +43,14 @@
         <!-- sort drop down -->
         <ul class="dropdown-menu">
           <li>
-            <a href="#" id="expdateselection" onclick="byexpdate()" class="sort-item">
+            <a href="#" id="expdateselection" onclick="organize(1)" class="sort-item">
               <i class="fa fa-fw item-left" aria-hidden="true"></i>
               <span class="item-center">Exp Date</span>
             </a>
           </li>
 
           <li>
-            <a href="#" id="uploaddateselection" onclick="byupload()" class="sort-item">
+            <a href="#" id="uploaddateselection" onclick="organize(2)" class="sort-item">
               <i class="fa fa-fw  item-left" aria-hidden="true"></i>
               <span class="item-center">Upload Date</span>
             </a>
@@ -78,7 +78,7 @@
 
         <!-- tags drop down -->
         <ul id="tagsUL" class="dropdown-menu" >
-          <form id="tagdpd" onsubmit="displayTaggedCoupon(); return false;">
+          <form id="tagdpd" onsubmit="organize(0); return false;">
 
           <input type="submit" id="go" value="Go!">
         </form>
