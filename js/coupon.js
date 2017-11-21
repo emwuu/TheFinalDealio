@@ -155,45 +155,78 @@ function myFunction() {
   }
 }
 
+
 //tags LEFT OFF @ HOW TO GRAB TAGNAME CLICKED ON AS A VARIABLE
 function displayTaggedCoupon() {
-  /*var input, filter, table, tr, td, tag;
-  // list = document.getElementsByTagName("li");
-  // filter = list.className.toUpperCase() //tag name stored as filter
-  cList = JSON.parse(localStorage.getItem('customCoupons'));
-  form = document.getElementById("tagdpd");
-
-  //first iterate through all of the form elements that are checkboxes
-  for (var i = 0; i < form.length; i++){
-    //if the checkbox is checked
-    if (form.elements[i].checked){
-      //then iterate through all of the customCoupons
-      for (var j = 0; j < cList.length; j++){
-        //and iterate through the tags for each coupon
-        for (var k = 0; k < cList[j].tags.length; k++) {
-
-          if(tagList[j].tags[k] === form.elements[i].name) {
-            //then you want to show this element 
-            //???
-          }
-      }
-    }
-  }*/
+  //show everything again
+  myFunction();
 
   table = document.getElementById("myTable"); //defined so we can get all the td
   td = table.getElementsByTagName("td"); //asisgns td variable to every td tag
-  for (i = 0; i < td.length; i++) { //for all items that have td tag
-    for (i = 0; i < tagList.length; i++) { //for each coupon
-      couponSpecificTags = tagList[i].tags
-      for (i=0; i<couponSpecificTags.length; i++){  //search through all tags in tagList array
-        if (couponSpecificTags[i].toUpperCase().indexOf(filter) > -1) { // -1 means no match
-          td[i].style.display = ""; //if returns > -1 (match), do nothing (aka keep showing the item)
-        } else {
-          td[i].style.display = "none"; //if returns -1 (no match), then hide it
-        }
-      }
+  form = document.getElementById("tagdpd");
+  var i, j, k, p = 0;
+
+  var checkedtags = [];
+  var listofcoups = JSON.parse(localStorage.getItem('customCoupons'));
+  if (listofcoups == null){
+    listofcoups = couponList;
+  }
+
+  console.log(form.elements[0]);
+
+  //add tags from submission form to checked tags array
+  for(i = 0; i < form.length; i++){
+    if (form.elements[i].checked){
+      checkedtags.push(form.elements[i].name);
     }
   }
+
+  console.log("checkedtags");
+  console.log(checkedtags);
+
+  //iterate through table
+  for (i = 0; i < td.length; i++) { 
+    //don't bother with the ones that aren't visible
+    if(td[i].style.display == "none"){
+      continue;
+    } else {
+      var temp = null;
+      //find corresponding item in localStorage
+      console.log(listofcoups);
+      for (k = 0; k < listofcoups.length; k++){
+        console.log("title");
+        console.log(listofcoups[k].title);
+        if (td[i].id === listofcoups[k].title){
+          temp = listofcoups[k];
+        }
+      }
+      console.log("temp");
+      console.log(temp);
+
+      //0 for no, 1 for yes
+      var check = 0;
+
+      //check if the coupon has any checked tag
+      for (j = 0; j <checkedtags.length; j++){
+        console.log("temp tags"); 
+        console.log(temp.tags);
+        for (p = 0; p < temp.tags.length; p++){
+          if (checkedtags[j] === temp.tags[p]){
+            check = 1;
+            break;
+          }
+        }
+      }
+
+      if (check == 0){
+        td[i].style.display == "none";
+        console.log("INVISIBLE!");
+        console.log(td[i].name);
+        document.getElementById(td[i].id).style.display="none";
+      }
+    } // else
+  } //for loop
+  return false;
 }
 
 
@@ -206,7 +239,7 @@ var tags = [
 var source   = $("#filterTags-template").html();
 var template = Handlebars.compile(source);
 
-var parentDiv = $("#tagsUL");
+var parentDiv = $("#tagdpd");
 
 var html = null;
 var cl = null;

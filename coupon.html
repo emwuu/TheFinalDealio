@@ -59,6 +59,16 @@
       </div>
 
 
+	<script id="filterTags-template" type="text/x-handlebars-template">
+		<li class="{{tagname}}" > <!-- onclick="displayTaggedCoupon(this)" -->
+	         <!--<a href="#" class="sort-item">-->
+       		<input type="checkbox" class="sort-item" checked="checked" name="{{tagname}}"> {{tagname}} <br>
+	   		<i class="fa fa-fw item-left" aria-hidden="true"></i>
+	              <!--<span class="item-center"> {{tagname}} </span>-->
+	            <!--</a>-->
+		</li>
+	</script>
+
       <!-- tags button -->
       <div class="btn-group">
 
@@ -68,16 +78,8 @@
 
         <!-- tags drop down -->
         <ul id="tagsUL" class="dropdown-menu" >
-          <form id="tagdpd" onsubmit="displayTaggedCoupon()">
-					<script id="filterTags-template" type="text/x-handlebars-template">
-						<li class="{{tagname}}" > <!-- onclick="displayTaggedCoupon(this)" -->
-	            <!--<a href="#" class="sort-item">-->
-                <input type="checkbox" class="sort-item" name="{{tagname}}"> {{tagname}} <br>
-	              <i class="fa fa-fw item-left" aria-hidden="true"></i>
-	              <!--<span class="item-center"> {{tagname}} </span>-->
-	            <!--</a>-->
-	          </li>
-					</script>
+          <form id="tagdpd" onsubmit="displayTaggedCoupon(); return false;">
+
           <input type="submit" id="go" value="Go!">
         </form>
         </ul>
@@ -89,33 +91,32 @@
 <!--- END Sort and Filter Button -->
 
 		<!-- Dynamically generate coupons -->
-		<div class="couponList" id="couponList{{index}}"> <!--couponList{{index}}-->
-      <form id="deletechecklist" onsubmit="">
-			   <table id="myTable">
-			   </table>
-      </form>
-		</div>
+<div class="couponList" id="couponList{{index}}"> <!--couponList{{index}}-->
+    <form id="deletechecklist" onsubmit="">
+		<table id="myTable"></table>
+    </form>
+</div>
 
-		<script id="entry-template" type="text/x-handlebars-template">
-				<tr>
-					<td class="{{title}}" name="{{title}}" id="{{title}}">
-            <input type="checkbox" class="checks" name="{{title}}"><br>
-            <div class="coupon modalClickable" id="{{title}}0" onclick="coupmodalfunc(this)">
-							<p>Product: {{title}}</p>
-							<p>Expiration Date: {{expdate}}</p>
-							<img src={{imag}} width=100% height=100%>
-          </div>
-					</td>
-				</tr>
-		</script>
+<script id="entry-template" type="text/x-handlebars-template">
+	<tr>
+		<td class="{{title}}" name="{{title}}" id="{{title}}">
+        <input type="checkbox" class="checks" name="{{title}}"><br>
+        <div class="coupon modalClickable" id="{{title}}0" onclick="coupmodalfunc(this)">
+			<p>Product: {{title}}</p>
+			<p>Expiration Date: {{expdate}}</p>
+			<img src={{imag}} width=100% height=100%>
+        </div>
+		</td>
+	</tr>
+</script>
 
-    <!-- modal format for individual coupons -->
-    <div id="coupModal" class="modal" onsubmit='add_tag()'>
-      <div class="modal-content">
-        <ul class="info" id="infomo">
-        </ul>
-      </div>
+<!-- modal format for individual coupons -->
+<div id="coupModal" class="modal" onsubmit='add_tag()'>
+    <div class="modal-content">
+    <ul class="info" id="infomo">
+    </ul>
     </div>
+</div>
 
     <script id="coupon-modal-template" type="text/x-handlebars-template">
         <img src={{imag}} width=100% height=100%>
