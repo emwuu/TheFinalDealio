@@ -84,17 +84,17 @@ function organize(choice){
   else if (choice == 2){
     sortOption = 2;
   }
-  console.log("sort OPtion");
+
   console.log(sortOption);
 
   //always search-filter-sort
   myFunction();
-  if (choice == 1){
+  displayTaggedCoupon();
+  if (sortOption == 1){
     byexpdate();
-  } else if (choice == 2){
+  } else if (sortOption == 2){
     byupload();
   }
-  displayTaggedCoupon();
 }
 
 function byexpdate(){
