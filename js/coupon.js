@@ -112,15 +112,7 @@ function byexpdate(){
   var td = table.getElementsByTagName("td");
   var visibleCoupons = [];
 
-
-  // get from local storage
-  if (localStorage.getItem('customCoupons') != null){
-    html = template((JSON.parse(localStorage.getItem('customCoupons')))[0]);
     cl = JSON.parse(localStorage.getItem('customCoupons'));
-  } else {
-    html = template(couponList[0]);
-    cl = couponList;
-  }
 
   //iterate through table, add all the ones that visible to array
   for (i = 0; i < td.length; i++){
@@ -191,14 +183,7 @@ function byupload(){
 
   var visibleCoupons = [];
 
-  // start with a simple template
-  if (localStorage.getItem('customCoupons') != null){
-    html = template((JSON.parse(localStorage.getItem('customCoupons')))[0]);
     cl = JSON.parse(localStorage.getItem('customCoupons'));
-  } else {
-    html = template(couponList[0]);
-    cl = couponList;
-  }
 
 //iterate through table, add all the ones that visible to array
   for (i = 0; i < td.length; i++){

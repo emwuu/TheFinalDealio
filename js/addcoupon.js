@@ -31,13 +31,11 @@ function save_data(){
   }
 
   var form1 = document.getElementById("frm");
-  console.log(form1.elements[0].value);
-  console.log(form1.elements[1].value);
-  console.log(form1.elements[2].checked);
-  console.log(form1.elements[3].checked);
   var arr = [];
 
   for (var i = 2; i < form1.elements.length-2; i++) {
+    console.log("value");
+    console.log(form1.elements[i].value);
     if(form1.elements[i].checked){
     	arr.push(form1.elements[i].value);
     }
