@@ -33,7 +33,7 @@ function save_data(){
   var form1 = document.getElementById("frm");
   var arr = [];
 
-  for (var i = 2; i < form1.elements.length-2; i++) {
+  for (var i = 3; i < form1.elements.length; i++) {
     console.log("value");
     console.log(form1.elements[i].value);
     if(form1.elements[i].checked){

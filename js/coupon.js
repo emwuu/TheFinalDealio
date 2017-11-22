@@ -372,6 +372,32 @@ function changeText(event){
  $('.checks').show(); //shows checkboxes to select coupons to delete
 }
 
+function deleteCoupon(){
+  var stringid = document.getElementById('deleteCoupon').value;
+  var coupons;
+  if (localStorage.getItem('customCoupons') == null){
+    coupons = couponList;
+  }
+  else{
+    coupons = JSON.parse(localStorage.getItem('customCoupons'));
+  } 
+  var i = 0;
+
+  //take out from localStorage
+  for (i=0; i < coupons.length; i++){
+    console.log("comparing");
+    console.log(coupons[i].title);
+    console.log(stringid);
+    if (coupons[i].title === stringid){
+      coupons.splice(i, 1);
+      break;
+    }
+  }
+
+  localStorage.setItem('customCoupons', JSON.stringify(coupons));
+  location.href="coupon.html";
+
+}
 
 $('#cancelDelete').click(function(){ //when click cancel
   $('#cancelDelete').hide(); //hides cancel option
