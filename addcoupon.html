@@ -30,7 +30,7 @@
 			<br>
 			<!-- add tag template -->
 			<script id="tag-template" type="text/x-handlebars-template">
-				<input type="checkbox" name="tag{{index}}" id="tag{{index}}" value={{tagname}}> {{tagname}} <br>
+				<input type="checkbox" name="tag{{index}}" id="tag{{index}}" value="{{tagname}}"> {{tagname}} <br>
 			</script>
 
 			Tags:		<button id="newTag" type="button"> Add Custom Tag </button> <br>
@@ -48,6 +48,7 @@
 						<input type="text" name="customtagname" id="customtagname" placeholder="Type name of new tag here"/><br>
 						<input type="submit" name="save_tag" value="Save tag">
 					</form>
+
 			</div>
 		</div>
 
