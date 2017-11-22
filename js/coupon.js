@@ -112,7 +112,13 @@ function byexpdate(){
   var td = table.getElementsByTagName("td");
   var visibleCoupons = [];
 
+  if (localStorage.getItem('customCoupons') != null){
+    html = template((JSON.parse(localStorage.getItem('customCoupons')))[0]);
     cl = JSON.parse(localStorage.getItem('customCoupons'));
+  } else {
+    html = template(couponList[0]);
+    cl = couponList;
+  }
 
   //iterate through table, add all the ones that visible to array
   for (i = 0; i < td.length; i++){
@@ -183,7 +189,13 @@ function byupload(){
 
   var visibleCoupons = [];
 
+  if (localStorage.getItem('customCoupons') != null){
+    html = template((JSON.parse(localStorage.getItem('customCoupons')))[0]);
     cl = JSON.parse(localStorage.getItem('customCoupons'));
+  } else {
+    html = template(couponList[0]);
+    cl = couponList;
+  }
 
 //iterate through table, add all the ones that visible to array
   for (i = 0; i < td.length; i++){
@@ -347,6 +359,9 @@ function changeText(event){
     var len = form.length;
 
     var cl = JSON.parse(localStorage.getItem('customCoupons'));
+    if (cl == null){
+      cl = couponList;
+    }
     console.log("check1");
     console.log(cl.length);
     //iterate through checklist to see if coupons are checked

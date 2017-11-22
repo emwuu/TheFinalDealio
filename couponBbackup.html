@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!-- HOME PAGE -->
+
+<html>
+	<head>
+		<title> Coupon Page </title>
+
+		<link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/coupon.css" rel="stylesheet">
+		<link href="css/navbarB.css" rel="stylesheet">
+    <link href="css/modal.css" rel="stylesheet">
+	</head>
+
+	<body id="couponBook">
+		<div class="title">
+			<p id="cancelDelete">Cancel</p>
+			<h1 id="title">COUPONS</h1>
+      <button id="select"> Select </button>
+
+		</div>
+
+
+
+	<!-- w3 search bar -->
+		<div class="search">
+				 <input type="text" id="myInput" onkeyup="organize(0)" placeholder="Search Coupon Name" title="Type in a name">
+ 		</div>
+
+<!-- sort by and filter tags buttons -->
+<div class="container">
+
+  <div class="panel">
+    <div class="panel-body">
+
+      <!-- Sort Button -->
+      <div class="btn-group">
+
+        <button type="button" class="btn btn-primary btn-sort btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Sort by">
+          <span id="sb">Sort By</span> <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+        </button>
+
+        <!-- sort drop down -->
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#" id="expdateselection" onclick="organize(1)" class="sort-item">
+              <i class="fa fa-fw item-left" aria-hidden="true"></i>
+              <span class="item-center">Exp Date</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" id="uploaddateselection" onclick="organize(2)" class="sort-item">
+              <i class="fa fa-fw  item-left" aria-hidden="true"></i>
+              <span class="item-center">Upload Date</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+
+	<script id="filterTags-template" type="text/x-handlebars-template">
+		<li class="{{tagname}}" > <!-- onclick="displayTaggedCoupon(this)" -->
+	         <!--<a href="#" class="sort-item">-->
+       		<input type="checkbox" class="sort-item" checked="checked" name="{{tagname}}"> {{tagname}} <br>
+	   		<i class="fa fa-fw item-left" aria-hidden="true"></i>
+	              <!--<span class="item-center"> {{tagname}} </span>-->
+	            <!--</a>-->
+		</li>
+	</script>
+
+      <!-- tags button -->
+      <div class="btn-group">
+
+        <button type="button" class="btn btn-primary btn-sort btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Sort by">
+          <span>Tags</span> <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+        </button>
+
+        <!-- tags drop down -->
+        <ul id="tagsUL" class="dropdown-menu" >
+          <form id="tagdpd" onsubmit="organize(0); return false;">
+
+          <input type="submit" id="go" value="Go!">
+        </form>
+        </ul>
+      </div>
+  </div>
+  </div>
+</div>
+
+<!--- END Sort and Filter Button -->
+
+		<!-- Dynamically generate coupons -->
+<div class="couponList" id="couponList{{index}}"> <!--couponList{{index}}-->
+    <form id="deletechecklist" onsubmit="">
+		<table id="myTable"></table>
+    </form>
+</div>
+
+<script id="entry-template" type="text/x-handlebars-template">
+	<tr>
+		<td class="{{title}}" name="{{title}}" id="{{title}}">
+        <input type="checkbox" class="checks" name="{{title}}"><br>
+        <div class="coupon modalClickable" id="{{title}}0">
+          <button id="modal" type="button" onclick="coupmodalfunc(document.getElementById('{{title}}0'))"> Enlarge </button>
+			<p>Product: {{title}}</p>
+			<p>Expiration Date: {{expdate}}</p>
+			<img src={{imag}} width=100% height=100%>
+        </div>
+		</td>
+	</tr>
+</script>
+
+<!-- modal format for individual coupons -->
+<div id="coupModal" class="modal" onsubmit='add_tag()'>
+    <div class="modal-content">
+    <ul class="info" id="infomo">
+    </ul>
+    </div>
+</div>
+
+    <script id="coupon-modal-template" type="text/x-handlebars-template">
+        <img src={{imag}} width=100% height=100%>
+          <p> Product: {{title}}</p>
+          <p> Expiration Date: {{expdate}} </p>
+          <p> Tags: {{tags}} </p>
+          <p> Comments: {{comments}} </p>
+          <button id="deleteCoupon" value="{{title}}" type="button" action="coupon.html" onclick="deleteCoupon()"> Delete </button>
+    </script>
+
+
+<!-- navbar -->
+		<div class="navbar">
+			<a href="coupon.html"><span class="glyphicon glyphicon-tag"></span><br> Coupons </a>
+
+			<input type="file" id="fileInput" name="fileInput" style="visibility: hidden; width: 0px; height: 0px;" accept="image/*" capture="camera"/>
+			<a href="addcoupon.html" onclick="scanFile();"> <span class="glyphicon glyphicon-camera"></span><br> Add Coupon </a>
+			<!-- https://stackoverflow.com/questions/10216331/open-file-dialog-box-on-a-tag -->
+			<a href="settings.html"><span class="glyphicon glyphicon-cog"></span><br> Settings </a>
+		</div>
+
+<!-- javascript links -->
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.bundle.js"></script>
+		<script src="js/handlebars-v4.0.11.js"></script>
+		<script src="js/addcoupon.js"></script>
+		<script src="js/coupon.js"></script>
+    <script src="js/couponModal.js"></script>
+		<script src="js/handlebars-v4.0.11.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+	</body>
+
+</html>
