@@ -8,7 +8,7 @@
 		<link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/coupon.css" rel="stylesheet">
-		<link href="css/navbarB.css" rel="stylesheet">
+		<link href="css/navbar.css" rel="stylesheet">
     <link href="css/modal.css" rel="stylesheet">
 	</head>
 
@@ -16,8 +16,7 @@
 		<div class="title">
 			<p id="cancelDelete">Cancel</p>
 			<h1 id="title">COUPONS</h1>
-      <button id="select"> Select </button>
-
+      <!--<button id="select"> Select </button-->
 		</div>
 
 
@@ -101,8 +100,7 @@
 	<tr>
 		<td class="{{title}}" name="{{title}}" id="{{title}}">
         <input type="checkbox" class="checks" name="{{title}}"><br>
-        <div class="coupon modalClickable" id="{{title}}0">
-          <button id="modal" type="button" onclick="coupmodalfunc(document.getElementById('{{title}}0'))"> Enlarge </button>
+        <div class="coupon modalClickable" id="{{title}}0" onclick="coupmodalfunc(this)">
 			<p>Product: {{title}}</p>
 			<p>Expiration Date: {{expdate}}</p>
 			<img src={{imag}} width=100% height=100%>
@@ -134,7 +132,7 @@
 			<a href="coupon.html"><span class="glyphicon glyphicon-tag"></span><br> Coupons </a>
 
 			<input type="file" id="fileInput" name="fileInput" style="visibility: hidden; width: 0px; height: 0px;" accept="image/*" capture="camera"/>
-			<a href="addcoupon.html" onclick="scanFile();"> <span class="glyphicon glyphicon-camera"></span><br> Add Coupon </a>
+			<a href="addcoupon.html" onclick="scanFile();"> <span class="glyphicon glyphicon-camera"></span><br> Scan! </a>
 			<!-- https://stackoverflow.com/questions/10216331/open-file-dialog-box-on-a-tag -->
 			<a href="settings.html"><span class="glyphicon glyphicon-cog"></span><br> Settings </a>
 		</div>
