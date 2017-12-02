@@ -414,9 +414,9 @@ function deleteCoupon(){
 
 }
 
-$('#cancelDelete').click(function(){ //when click cancel
-  $('#cancelDelete').hide(); //hides cancel option
-   $('#select').html("Select"); //changes delete to select
-   var z = document.getElementsByClassName('.checks')
-   $('.checks').hide();
-});
+function modifyCoupon(){
+	var stringid = document.getElementById('deleteCoupon').value;
+	localStorage.setItem('toModify', stringid);
+	location.href="modcoupon.html"
+}
+
