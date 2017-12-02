@@ -62,3 +62,7 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+function closeMod(event) {
+    modal.style.display = "none";
+}
